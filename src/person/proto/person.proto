@@ -1,0 +1,24 @@
+// person/proto/person.proto
+syntax = "proto3";
+
+package person;
+
+import "google/protobuf/empty.proto";
+
+service PersonService {
+    rpc FindOne (PersonByName) returns (Person) {}
+    rpc FindAll (google.protobuf.Empty) returns (PersonList) {}
+}
+
+message PersonByName {
+    string name = 1;
+}
+
+message PersonList {
+    repeated Person persons = 1;
+}
+
+message Person {
+    uint64 id = 1;
+    string name = 2;
+}

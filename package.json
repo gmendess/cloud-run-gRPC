@@ -5,12 +5,25 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "tsc",
-        "start": "node dist/main.js"
+        "build": "nest build",
+        "start": "node dist/main.js",
+        "start:dev": "nest start --watch"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@grpc/grpc-js": "^1.8.9",
+        "@grpc/proto-loader": "^0.7.5",
+        "@nestjs/common": "^9.3.9",
+        "@nestjs/core": "^9.3.9",
+        "@nestjs/microservices": "^9.3.9",
+        "nestjs-grpc-reflection": "^0.0.21",
+        "reflect-metadata": "^0.1.13",
+        "rxjs": "^7.8.0",
         "typescript": "^4.9.5"
+    },
+    "devDependencies": {
+        "@nestjs/cli": "^9.2.0",
+        "@types/node": "^18.14.0"
     }
 }
