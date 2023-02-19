@@ -4,10 +4,15 @@ syntax = "proto3";
 package person;
 
 import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
 
 service PersonService {
-    rpc FindOne (PersonByName) returns (Person) {}
-    rpc FindAll (google.protobuf.Empty) returns (PersonList) {}
+    rpc FindOne (PersonByName) returns (Person) {
+        option (google.api.http) = { get: "/v1/persons/{name}" };
+    }
+    rpc FindAll (google.protobuf.Empty) returns (PersonList) {
+        option (google.api.http) = { get: "/v1/persons" };
+    }
 }
 
 message PersonByName {
