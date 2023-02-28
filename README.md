@@ -23,7 +23,7 @@ Compile `.proto` file to `.protoset`
 $ protoc --proto_path=./ \
     --descriptor_set_out=person.protoset \
     --include_imports \
-    ./src/person/proto/person.proto
+    ./src/protos/person/person.proto
 ```
 
 `protoc` reference https://grpc.io/docs/protoc-installation/
