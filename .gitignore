@@ -2,3 +2,4 @@ googleapis
 node_modules
 dist
 *.protoset
+*.pb

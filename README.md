@@ -15,7 +15,7 @@ $ docker build . -t <image>
 $ docker run -d -p 8080:8080 <image>
 ```
 
-## Testing (without reflection)
+## Testing
 
 Compile `.proto` file to `.protoset`
 
@@ -40,17 +40,6 @@ $ grpcurl -plaintext \
 
 `grpcurl` reference https://github.com/fullstorydev/grpcurl
 
-## Testing (with reflection)
-
-This sample supports reflection by providing informantion about gRPC services on the server. With reflection enabled, its not necessary to compile the `.proto` files.
-
-```shell
-$ grpcurl -plaintext \
-    -d '{ "name": "Gabriel" }' \
-    localhost:8080 \
-    person.PersonService.FindOne
-```
-
 ## Deploy to Cloud Run
 
 ```shell
@@ -65,3 +54,7 @@ $ gcloud run deploy nestjs-grpc-server \
 ```
 
 To test the gRPC server deployed to cloud run, its necessary to remove the flag `-plaintext` from `grpcurl` command, because now TLS is enabled. Also, instead `localhost` you need to use the url from the deployed service (without `https://`) using port `443`.
+
+## JSON/REST transcription
+
+Its possible to transcribe JSON/REST http call to gRPC using GCP Cloud Endpoints + ESPv2. More details how to do that, read the file `HTTP_TRANSCRIPTION.md`

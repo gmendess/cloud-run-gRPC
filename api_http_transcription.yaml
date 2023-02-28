@@ -1,0 +1,12 @@
+type: google.api.Service
+config_version: 3
+
+name: <ESPV2_SERVICE_HOSTNAME>
+
+http:
+    rules:
+        - selector: person.PersonService.FindOne
+          get: /v1/persons/{name}
+
+        - selector: person.PersonService.FindAll
+          get: /v1/persons

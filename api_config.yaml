@@ -1,0 +1,17 @@
+type: google.api.Service
+config_version: 3
+
+name: <ESPV2_SERVICE_HOSTNAME>
+
+title: Cloud Endpoints + Cloud Run gRPC
+apis:
+    - name: person.PersonService
+
+usage:
+    rules:
+        - selector: "*"
+          allow_unregistered_calls: true
+backend:
+    rules:
+        - selector: "*"
+          address: "grpcs://<BACKEND_HOSTNAME>"
